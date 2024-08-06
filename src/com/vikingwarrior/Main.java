@@ -1,8 +1,6 @@
-package com.vikingwarrior;
-
 import com.vikingwarrior.models.Warrior;
 import com.vikingwarrior.interfaces.IWeapon;
-import com.vikingwarrior.weapons.Crossbow;
+import com.vikingwarrior.weapons.*;
 import com.vikingwarrior.utilities.WarriorConsole;
 
 import java.util.ArrayList;
@@ -11,10 +9,13 @@ import java.util.Random;
 
 public class Main
 {
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         List<IWeapon> weapons = new ArrayList<>();
         weapons.add(new Crossbow());
+        weapons.add(new Axe());
+        weapons.add(new Bow());
+        weapons.add(new Club());
+        weapons.add(new Dagger());
         // Add other weapons here
 
         Random random = new Random();
@@ -28,11 +29,14 @@ public class Main
 
         while (true)
         {
-            if (!WarriorConsole.confirmAction("Do you want to change weapon?"))
-            {
+            if (!WarriorConsole.confirmAction("Do you want to change weapon?")) {
                 break;
             }
-            IWeapon newWeapon = weapons.get(random.nextInt(weapons.size()));
+            IWeapon newWeapon;
+            do {
+                newWeapon = weapons.get(random.nextInt(weapons.size()));
+            } while (newWeapon.getClass() == warrior.getWeapon().getClass());
+
             warrior.changeWeapon(newWeapon);
             WarriorConsole.displayWarriorStat(warrior);
             WarriorConsole.displayAction(warrior, "prepares an attack with the new weapon!");
