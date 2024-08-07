@@ -16,6 +16,6 @@ public class Club implements IWeapon
     @Override
     public void attack()
     {
-        System.out.println("Fires off the " + name + " and deals " + damage + " damage");
+        System.out.println("Hits with the " + name + " and deals " + damage + " damage");
     }
 }

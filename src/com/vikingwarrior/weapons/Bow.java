@@ -16,6 +16,6 @@ public class Bow implements IWeapon
     @Override
     public void attack()
     {
-        System.out.println("Swings the " + name + " and deals " + damage + " damage");
+        System.out.println("Fires an arrow with the " + name + " and deals " + damage + " damage");
     }
 }
