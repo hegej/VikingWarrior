@@ -16,7 +16,6 @@ public class Main
         weapons.add(new Bow());
         weapons.add(new Club());
         weapons.add(new Dagger());
-        // Add other weapons here
 
         Random random = new Random();
         IWeapon randomWeapon = weapons.get(random.nextInt(weapons.size()));
